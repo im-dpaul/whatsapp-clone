@@ -1,0 +1,35 @@
+name: whatsapp_ui
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/
+    - assets/logo/
+  fonts:
+    - family: Inter
+      fonts:
+       - asset: assets/fonts/Inter-Bold.ttf
+       - asset: assets/fonts/Inter-ExtraBold.ttf
+       - asset: assets/fonts/Inter-SemiBold.ttf
+       - asset: assets/fonts/Inter-Light.ttf
+       - asset: assets/fonts/Inter-ExtraLight.ttf
+       - asset: assets/fonts/Inter-Thin.ttf
+       - asset: assets/fonts/Inter-Medium.ttf
+       - asset: assets/fonts/Inter-Regular.ttf
