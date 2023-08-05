@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp_ui/features/splash_screen/views/splash_screen.dart';
+import 'package:get/get.dart';
+import 'package:whatsapp_ui/core/constants/app_colors.dart';
+import 'package:whatsapp_ui/core/routes/app_routes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +12,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      theme: ThemeData(
+      fontFamily: 'Inter',
+      scaffoldBackgroundColor: AppColors.pureWhite),
+      initialRoute: AppRoutes.splashScreen,
+      onGenerateRoute: GenerateRoute.generateRoute,
     );
   }
 }
