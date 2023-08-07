@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:whatsapp_ui/features/chat/model/chat_list_data_model.dart';
@@ -5,6 +6,16 @@ import 'package:whatsapp_ui/features/chat/model/message_data_model.dart';
 
 class ChatsListController extends GetxController {
   RxString currentSenderId = ''.obs;
+  RxBool isMessageEmpty = true.obs;
+  TextEditingController messageController = TextEditingController();
+  setMessageEmpty() {
+    if (messageController.text.isNotEmpty) {
+      isMessageEmpty.value = false;
+    } else {
+      isMessageEmpty.value = true;
+    }
+  }
+
   extractDateTime(DateTime? dateTime) {
     if (dateTime != null) {
       dateTime = dateTime.toLocal();
