@@ -32,6 +32,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.green01,
   );
+  static TextStyle f10w400Neutral01 = const TextStyle(
+    fontSize: 10,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    color: AppColors.neutral01,
+  );
   static TextStyle f10w600Neutral01 = const TextStyle(
     fontSize: 10,
     fontFamily: 'Inter',

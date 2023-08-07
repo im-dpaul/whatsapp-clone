@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp_ui/core/routes/app_routes.dart';
 import 'package:whatsapp_ui/features/chat/controller/chats_list_controller.dart';
-import 'package:whatsapp_ui/features/home/widgets/single_chat_item.dart';
+import 'package:whatsapp_ui/features/chat/widgets/single_chat_item.dart';
 
 class ChatsListScreen extends StatefulWidget {
   const ChatsListScreen({super.key});
@@ -40,7 +41,13 @@ class _ChatsListScreenState extends State<ChatsListScreen> {
                 imageUrl: chatsListController
                     .chatListDataModel.chatItem?[index].chatData?.senderAvatar,
                 profileOnTap: () {},
-                chatOnTap: () {},
+                chatOnTap: () {
+                  // // set senderId through controller while onTap
+                  // // and navigate to chat screen after getting particular sender's chat data
+                  // chatsListController.currentSenderId.value = chatsListController
+                  //               .chatListDataModel.chatItem?[index].chatData?.senderId ?? '';
+                  Get.toNamed(AppRoutes.chatScreen);
+                },
               );
             },
           ),

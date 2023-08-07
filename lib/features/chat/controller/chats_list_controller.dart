@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:whatsapp_ui/features/chat/model/chat_list_data_model.dart';
+import 'package:whatsapp_ui/features/chat/model/message_data_model.dart';
 
 class ChatsListController extends GetxController {
+  RxString currentSenderId = ''.obs;
   extractDateTime(DateTime? dateTime) {
     if (dateTime != null) {
       dateTime = dateTime.toLocal();
@@ -15,6 +17,58 @@ class ChatsListController extends GetxController {
         return DateFormat('hh:mm a').format(dateTime);
       }
     }
+  }
+
+  chatTime(DateTime? dateTime) {
+    if (dateTime != null) {
+      dateTime = dateTime.toLocal();
+      return DateFormat('hh:mm a').format(dateTime);
+    }
+  }
+
+  String chatDate(DateTime? dateTime) {
+    if (dateTime != null) {
+      dateTime = dateTime.toLocal();
+      if (dateTime.isBefore(DateTime.now().subtract(const Duration(days: 7)))) {
+        return DateFormat('dd MMMM yyyy').format(dateTime);
+      } else {
+        if (dateTime.day == DateTime.now().day) {
+          return "Today";
+        } else if (dateTime.day == DateTime.now().day - 1) {
+          return "Yesterday";
+        } else {
+          final weekday = dateTime.weekday;
+          String day = '';
+          switch (weekday) {
+            case 1:
+              day = "Monday";
+              break;
+            case 2:
+              day = "Tuesday";
+              break;
+            case 3:
+              day = "Wednesday";
+              break;
+            case 4:
+              day = "Thursday";
+              break;
+            case 5:
+              day = "Friday";
+              break;
+            case 6:
+              day = "Saturday";
+              break;
+            case 7:
+              day = "Sunday";
+              break;
+            default:
+              day = "Today";
+          }
+          return day;
+        }
+      }
+    }
+    return "";
   }
 
   ChatListDataModel chatListDataModel = ChatListDataModel(
@@ -251,6 +305,253 @@ class ChatsListController extends GetxController {
           lastMessage: "See ya",
           lastMessageTime: DateTime(2023, 8, 2, 11, 10),
         ),
+      ),
+    ],
+  );
+  MessageDataModel messageDataModel = MessageDataModel(
+    senderDetails: SenderDetails(
+      id: 'aaa',
+      avatar:
+          'https://ichef.bbci.co.uk/news/976/cpsprodpb/3EE0/production/_121269061_getty.jpg',
+      name: 'Deb',
+    ),
+    allMessage: [
+      AllMessage(
+        messageDate: DateTime(2023, 7, 4),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 7, 4, 7, 34),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            text: 'Hello',
+            status: 'read',
+            time: DateTime(2023, 7, 4, 7, 35),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 7, 4, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa4',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 7, 4, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 7, 5),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 7, 5, 7, 35),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: 'read',
+            text: 'Hello',
+            time: DateTime(2023, 7, 5, 7, 35),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 7, 5, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa5',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 7, 5, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 7, 6),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 7, 6, 7, 36),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: 'read',
+            text: 'Hello',
+            time: DateTime(2023, 7, 6, 7, 45),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 7, 6, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa6',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 7, 6, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 7, 7),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 7, 7, 7, 37),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "read",
+            text: 'Hello',
+            time: DateTime(2023, 7, 7, 8, 55),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 7, 7, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa7',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 7, 7, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 8, 2),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 8, 2, 8, 28),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "read",
+            text: 'Hello',
+            time: DateTime(2023, 8, 2, 8, 35),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 8, 2, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa8',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 8, 2, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 8, 5),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 8, 5, 8, 29),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "read",
+            text: 'Hello',
+            time: DateTime(2023, 8, 5, 8, 35),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 8, 5, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa9',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 8, 5, 10, 23),
+          ),
+        ],
+      ),
+      AllMessage(
+        messageDate: DateTime(2023, 8, 6),
+        messageData: [
+          MessageData(
+            id: 'aaa1',
+            sender: true,
+            text: 'Hii',
+            time: DateTime(2023, 8, 6, 8, 39),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "read",
+            text: 'Hello',
+            time: DateTime(2023, 8, 6, 9, 5),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 8, 6, 9, 23),
+          ),
+          MessageData(
+            id: 'aaa6',
+            sender: true,
+            text: 'What\'s going on?',
+            time: DateTime(2023, 8, 6, 9, 23),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "read",
+            text: 'Hello',
+            time: DateTime(2023, 8, 6, 9, 35),
+          ),
+          MessageData(
+            id: 'aaa3',
+            sender: true,
+            text: 'How are you?',
+            time: DateTime(2023, 8, 6, 10, 23),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "received",
+            text: 'Hello',
+            time: DateTime(2023, 8, 6, 11, 35),
+          ),
+          MessageData(
+            id: 'aaa2',
+            sender: false,
+            status: "sent",
+            text: 'u there?',
+            time: DateTime(2023, 8, 6, 12, 35),
+          ),
+        ],
       ),
     ],
   );
