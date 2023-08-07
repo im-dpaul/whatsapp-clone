@@ -8,6 +8,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.neutral01,
   );
+  static TextStyle f14w500Neutral01 = const TextStyle(
+    fontSize: 14,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+    color: AppColors.neutral01,
+  );
   static TextStyle f18w400PureWhite = const TextStyle(
     fontSize: 18,
     fontFamily: 'Inter',
