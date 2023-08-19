@@ -56,10 +56,45 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
                       ),
                     ),
                   ),
-                  Icon(
-                    Icons.attach_file_outlined,
-                    size: 24,
-                    color: AppColors.neutral01.withOpacity(0.7),
+                  GestureDetector(
+                    onTap: () {
+                      // showGeneralDialog(
+                      //   context: context,
+                      //   barrierDismissible: true,
+                      //   barrierLabel: "Files",
+                      //   barrierColor: AppColors.transparent,
+                      //   // barrierColor: AppColors.grey2.withOpacity(0.01),
+                      //   pageBuilder: (context, animation, secondaryAnimation) {
+                      //     return WillPopScope(
+                      //       onWillPop: () async {
+                      //         return true;
+                      //       },
+                      //       child: SizedBox(
+                      //         child: Column(
+                      //           mainAxisAlignment: MainAxisAlignment.end,
+                      //           crossAxisAlignment: CrossAxisAlignment.center,
+                      //           children: [
+                      //             Material(
+                      //               child: Padding(
+                      //                 padding: const EdgeInsets.only(
+                      //                     bottom: 80, left: 20, right: 20),
+                      //                 child: Text(
+                      //                   "data",
+                      //                 ),
+                      //               ),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ),
+                      //     );
+                      // },
+                      // );
+                    },
+                    child: Icon(
+                      Icons.attach_file_outlined,
+                      size: 24,
+                      color: AppColors.neutral01.withOpacity(0.7),
+                    ),
                   ),
                   Visibility(
                     visible: chatsListController.isMessageEmpty.value,

@@ -13,6 +13,7 @@ class SingleChatWidget extends StatelessWidget {
   final String? dateTime;
   final void Function()? profileOnTap;
   final void Function()? chatOnTap;
+
   const SingleChatWidget({
     Key? key,
     this.lastMessageSender,
@@ -25,6 +26,7 @@ class SingleChatWidget extends StatelessWidget {
     this.profileOnTap,
     this.chatOnTap,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
