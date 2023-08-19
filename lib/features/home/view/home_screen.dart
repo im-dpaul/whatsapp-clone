@@ -6,6 +6,7 @@ import 'package:whatsapp_ui/features/chat/controller/chats_list_controller.dart'
 import 'package:whatsapp_ui/features/chat/view/chats_list_screen.dart';
 import 'package:whatsapp_ui/features/home/widgets/chats_tabbar.dart';
 import 'package:whatsapp_ui/features/home/widgets/home_appbar.dart';
+import 'package:whatsapp_ui/features/status/view/status_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -68,9 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     feature: 'Community',
                   ),
                   ChatsListScreen(),
-                  FeatureComingSoonWidget(
-                    feature: 'Status',
-                  ),
+                  StatusListScreen(),
                   FeatureComingSoonWidget(
                     feature: 'Call',
                   ),
